@@ -1,8 +1,6 @@
 /*
  
-    Note        :         Template with Hash for unordered map, struct for Matrix and struct for Binary Indexed Tree(BIT)/Fenwick Tree.
-
-    Link        :      
+    Note        :         Template with Hash for unordered map, struct for Matrix and struct for Binary Indexed Tree(BIT)/Fenwick Tree.    
     
 //*/
 
@@ -14,19 +12,9 @@
 
 
 #include "bits/stdc++.h"
- 
-#define sp <<" "
-#define el <<"\n"
-#define S second
-#define F first
-#define pb push_back
-#define all(ar) ar.begin(),ar.end()
-#define pii pair<ll,ll>
- 
- 
+
 using namespace std;
 using ll = long long;
-using ld = long double;
  
 const ll mod = 100000007; 
 const ll si = 5000006;
