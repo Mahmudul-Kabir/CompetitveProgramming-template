@@ -1,6 +1,8 @@
 /*
  
-    Note        :         Template with Hash for unordered map, struct for Matrix and struct for Binary Indexed Tree(BIT)/Fenwick Tree.    
+    Note        :         *HASH, unordered set and map and their function, __int128_t are to show how to use them.
+                          *BIT: Binary indexed tree/ Fenwick tree and related functions.
+                          *Matrix: matrix and related functions.
     
 //*/
 
