@@ -70,6 +70,7 @@ struct Pdi
         return (mul(a,md) + c) % md; 
     }
     ll rho(ll n){
+        if(n % 2 == 0) return 2; 
         ll x0 = (rand() % n) + 1, c = (rand() % n) + 1; 
         ll x = x0, y = x0,g = 1; 
         while(g == 1){
