@@ -28,6 +28,34 @@ signed main(){
     return 0;
 } 
 
+//Finding Mobius Function value using Linear-sieve.
+
+bitset<100005> com; 
+int mo[100005];  
+
+void ini(){
+    mo[1] = 1;
+    int s = 0; 
+    vector<int> pr;
+    for(int i = 2; i <= 100000; i++){
+        if(!com[i]){
+            pr.pb(i); 
+            s++; 
+            mo[i] = -1; 
+        }
+        for(int j = 0; j < s && i * pr[j] <= 100000; j++){
+            com[i * pr[j]] = 1; 
+            if(i % pr[j] == 0){
+                mo[i * pr[j]] = 0;
+                break; 
+            }
+            else mo[i * pr[j]] = mo[i] * mo[pr[j]]; 
+        }
+    }
+}
+
+
+// Pollard-Rho Factorization
 struct Pdi
 {
     vector<ll> div,fin; 
@@ -112,3 +140,6 @@ struct Pdi
         refine(); 
     }
 };
+
+
+
