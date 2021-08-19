@@ -1,7 +1,9 @@
 /*
     
-    Note        :              
+    Note        :     
+                      * Find_mob_value() find the value of mobius function in range [1,100000]. 
                       *Pdi: Finds and stores the prime factors of a number with Pollard Rho factorization.
+                      
 */
 
 
@@ -33,7 +35,7 @@ signed main(){
 bitset<100005> com; 
 int mo[100005];  
 
-void ini(){
+void Find_mob_value(){
     mo[1] = 1;
     int s = 0; 
     vector<int> pr;
