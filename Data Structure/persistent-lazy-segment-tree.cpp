@@ -72,7 +72,7 @@ signed main(){
   ll n = 420; 
   root[0] = new node();
   root[0] -> build(0,n-1);
-  root[0] = root[0] -> update(0, n - 1,1,1); // update a previous version
-  root[1] = root[0] -> update(0, n - 1,1,1); // create a new version
+  root[0] = root[0] -> rupd(0, n - 1,l,r,val); // update a previous version
+  root[1] = root[0] -> rupd(0, n - 1,l,r,val); // create a new version
   return 0;
 }
