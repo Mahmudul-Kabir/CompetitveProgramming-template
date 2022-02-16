@@ -36,9 +36,8 @@ struct node{
         if(b < l || a > r || l > r) return this; 
         if(lz) push(a,b); 
         if(l <= a && b <= r){
-            node *ret = new node(val,left,right,0); 
-            if(lz != 0) push(a,b);
-            else if(a != b){
+            node *ret = new node(val,left,right,0);
+            if(a != b){
                 ret -> left = new node(left); 
                 ret -> right = new node(right);
                 ret -> left -> lz += del; 
