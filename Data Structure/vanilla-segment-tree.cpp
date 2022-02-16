@@ -32,7 +32,7 @@ struct seg{
         return; 
     }
     seg(int x): n(x){
-        str.resize(n,0); 
+        str.resize(4 * n,0); 
         return; 
     } 
     void clr(ll x, ll *hehe){
