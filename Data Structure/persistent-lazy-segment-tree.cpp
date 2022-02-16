@@ -21,37 +21,33 @@ struct node{
         left -> build(l, mid);
         right -> build(mid+1, r);
     }
-    node *push(int l,int r){
-        node *ret = new node(val,left,right,0);
-        ret -> val += (r - l + 1) * lz; 
+    void push(ll l,ll r){
+        val += (r - l + 1) * lz; 
         if(l != r){
-            ret -> left = new node(left); 
-            ret -> right = new node(right); 
-            ret -> left -> lz += lz; 
-            ret -> right -> lz += lz; 
+            left = new node(left); 
+            right = new node(right); 
+            left -> lz += lz; 
+            right -> lz += lz; 
         }
-        return ret;  
+        lz = 0; 
+        return;  
     }
     node *rupd(ll a, ll b, ll l, ll r,ll del){
-        if(b < l || a > r) return this; 
+        if(b < l || a > r || l > r) return this; 
+        if(lz) push(a,b); 
         if(l <= a && b <= r){
-            node *ret; 
-            if(lz != 0) ret = push(a,b), lz = 0;
+            node *ret = new node(val,left,right,0); 
+            if(lz != 0) push(a,b);
             else if(a != b){
-                ret = new node(val,left,right,0);
                 ret -> left = new node(left); 
                 ret -> right = new node(right);
-            }else ret = new node(val);
-            ret -> val += (b - a + 1) * del;
-            if(a != b){
                 ret -> left -> lz += del; 
                 ret -> right -> lz += del; 
             }
+            ret -> val += (b - a + 1) * del;
             return ret; 
         } 
-        node *ret;  
-        if(lz != 0) ret = push(a,b); 
-        else ret = new node(val,left,right,0);
+        node *ret = new node(val,left,right,0);  
         ll mid = a + (b - a)/2;  
         ret -> left = left -> rupd(a,mid,l,r,del); 
         ret -> right = right -> rupd(mid+1,b,l,r,del); 
@@ -59,12 +55,13 @@ struct node{
         return ret; 
 
     }  
-    ll lque(ll a, ll b, ll l, ll r, ll lazy){
+    ll lque(ll a, ll b, ll l, ll r){
         //cout<<a sp<<b el; 
         if(b < l || a > r) return 0; 
-        if(a >= l && b <= r) return val + ((b - a + 1) * lazy); 
-        ll mid =  a + (b - a)/2, nlz = lazy + lz; 
-        return left -> lque(a,mid,l,r,nlz) + right -> lque(mid+1, b, l, r, nlz); 
+        if(lz) push(a,b); 
+        if(a >= l && b <= r) return val; 
+        ll mid =  a + (b - a)/2; 
+        return left -> lque(a,mid,l,r) + right -> lque(mid+1, b, l, r); 
     }
 }*root[100005];
 
